@@ -23,7 +23,16 @@
 		<div id="menu">
 			<ul>
 				<li><a href="#">Pagina Principal</a></li>
-				<li><a href="#">Inicio de Sesion</a></li>
+                                <?php
+                                session_start();
+                                if (isset($_SESSION["userLogued"])) {
+                                    $user = $_SESSION["userLogued"];   
+                                    echo('<li>Hola ' . $user["name"] . ' <a href="src/scenes/logout/doLogout.php">Salir</a></li>');
+                                    echo('<li><a href="crearProducto.php">Crear Producto</a></li>');
+                                } else {
+                                    echo('<li><a href="src/scenes/login/login.php" target="login">Inicio de Sesion</a></li>');
+                                }
+                                ?>
 				<li><a href="#">Contacto</a></li>
 			<ul>
 		</div>
