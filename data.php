@@ -26,10 +26,10 @@ function getCategories() {
 function login($user, $password) {
     $users = getUsers();
     foreach($users as $userDB){
-        if($user == $userDB -> email && $password == $userDB -> password){
+        if($user == $userDB['email'] && $password == $userDB['password']){
             return array(
-                "user" => $userDB -> email,
-                "name" => $userDB -> alias
+                "user" => $userDB['email'],
+                "name" => $userDB['alias']
             );
         }
     }
