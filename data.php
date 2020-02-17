@@ -1,4 +1,5 @@
 <?php
+require_once 'libs/Smarty.class.php';
 
 function getConnection() {
     $user = "root";
@@ -7,6 +8,15 @@ function getConnection() {
     $cn = new PDO(
             'mysql:host=localhost;dbname=guia_cine', $user, $password);
     return $cn;
+}
+
+function getSmarty() {
+    $mySmarty = new Smarty();
+    $mySmarty->template_dir = 'templates';
+    $mySmarty->compile_dir = 'templates_c';
+    $mySmarty->config_dir = 'config';
+    $mySmarty->cache_dir = 'cache';
+    return $mySmarty;
 }
 
 function getUsers() {

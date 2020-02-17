@@ -2,6 +2,8 @@
 <?php
     ini_set('display_errors', true);
     require_once 'data.php';
+    $mySmarty = getSmarty();
+    $mySmarty->display("producto.tpl");
 ?>
 <html>
 	<head>
