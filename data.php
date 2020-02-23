@@ -10,6 +10,8 @@ function getConnection() {
     return $cn;
 }
 
+//Smarty Helpers
+
 function getSmarty() {
     $mySmarty = new Smarty();
     $mySmarty->template_dir = 'templates';
@@ -27,6 +29,10 @@ function getSmartyForScenes() {
     $mySmarty->cache_dir = '../../../cache';
     return $mySmarty;
 }
+
+//Smarty Helpers
+
+//Onboarding Helpers
 
 function getUser($user, $password) {
     $cn = getConnection();
@@ -57,3 +63,15 @@ function registerUser($user, $password, $alias) {
     ));
     return login($user,$password);
 }
+
+//Onboarding Helpers
+
+//Genres Helpers
+
+function getGenres(){
+    $cn = getConnection();
+    $cn->consulta('SELECT id, nombre FROM generos ORDER BY nombre');
+    return $cn->restantesRegistros();
+}
+
+//Genres Helpers
