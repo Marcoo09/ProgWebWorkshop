@@ -37,7 +37,17 @@
             </ul>
         </div>
         <div id="productos">
-           
+            <h2>Films</h2>
+            <ul>
+                {foreach from=$films item=film}
+                    <li>
+                        <a href=#" class="film" filmId="{$film.id}">
+                            {$film.titulo}
+                        </a>
+                    </li>
+                {/foreach}
+
+            </ul>
         </div>
     </body>
 </html>

@@ -75,3 +75,14 @@ function getGenres(){
 }
 
 //Genres Helpers
+
+//Films Helpers
+
+
+function getFilms(){
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
+    return $cn->restantesRegistros();
+}
+
+//Films Helpers
