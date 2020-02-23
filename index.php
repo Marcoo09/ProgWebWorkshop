@@ -26,7 +26,8 @@ $user = $_SESSION["userLogued"];
 
 # setear variables
 $mySmarty->assign("userLogued", $user);
-//$mySmarty->assign("categorias", getCategorias());
+$mySmarty->assign("genres", getGenres());
+$mySmarty->assign("films", getFilms());
 
 # mostrar el template
 $mySmarty->display('index.tpl');

@@ -23,21 +23,31 @@
             <input type="text"/>
             <input type="button" value="Buscar" />
         </div>
-        <div id="categorias">
-            <h2>Categorias</h2>
+        <div id="genres">
+            <h2>Géneros</h2>
             <ul>
-{*                {foreach from=$categorias item=cat}
+                {foreach from=$genres item=genre}
                     <li>
-                        <a href=#" class="categoria" catId="{$cat}">
-                            {$cat}
+                        <a href=#" class="genre" genreId="{$genre.id}">
+                            {$genre.nombre}
                         </a>
                     </li>
-                {/foreach}*}
+                {/foreach}
 
             </ul>
         </div>
         <div id="productos">
-           
+            <h2>Films</h2>
+            <ul>
+                {foreach from=$films item=film}
+                    <li>
+                        <a href=#" class="film" filmId="{$film.id}">
+                            {$film.titulo}
+                        </a>
+                    </li>
+                {/foreach}
+
+            </ul>
         </div>
     </body>
 </html>
