@@ -1,12 +1,12 @@
 <?php
 require_once 'libs/Smarty.class.php';
+require_once 'src/helpers/class.Conexion.BD.php';
 
 function getConnection() {
     $user = "root";
     $password = "root";
-
-    $cn = new PDO(
-            'mysql:host=localhost;dbname=guia_cine', $user, $password);
+    $cn = new ConexionBD("mysql", "localhost", "guia_cine", $user, $password);
+    $cn->conectar();
     return $cn;
 }
 
@@ -19,12 +19,13 @@ function getSmarty() {
     return $mySmarty;
 }
 
-function getUsers() {
+function getUser($user, $password) {
     $cn = getConnection();
-    $sql = "SELECT * FROM usuarios";
-    $result = $cn->query($sql);
-    $users = $result->fetchAll(PDO::FETCH_ASSOC);
-    return $users;
+    $passwordMd5 = md5($password);
+    $cn->consulta('SELECT * FROM usuarios WHERE email=:email AND password=:password',array(
+        array("email", $user, 'string'),array("password", $passwordMd5, 'string')
+    ));
+    return $cn->siguienteRegistro();
 }
 
 function getCategories() {
@@ -34,14 +35,12 @@ function getCategories() {
 }
 
 function login($user, $password) {
-    $users = getUsers();
-    foreach($users as $userDB){
-        if($user == $userDB['email'] && $password == $userDB['password']){
-            return array(
-                "user" => $userDB['email'],
-                "name" => $userDB['alias']
-            );
-        }
+    $userDB = getUser($user,$password);
+    if($userDB){
+        return array(
+            "user" => $userDB['email'],
+            "name" => $userDB['alias']
+        );
     }
     return NULL;
 }
