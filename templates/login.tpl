@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -10,11 +9,6 @@
             Clave: <input name="password" type="password"/><br>
             <input value="Login" type="submit"/><br> 
             <a href="../registerUser/register.php">Registrarme</a>
-                <?php
-                    if(isset($_GET["err"])) {
-                        echo("<label>Usuario/clave incorrectos.</label>");
-                    }
-                ?>
-            </form>
+        </form>
     </body>
 </html>

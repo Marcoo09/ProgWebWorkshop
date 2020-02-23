@@ -44,3 +44,13 @@ function login($user, $password) {
     }
     return NULL;
 }
+
+
+function registerÙser($user, $password, $alias) {
+    $cn = getConnection();
+    $passwordMd5 = md5($password);
+    $cn->consulta('INSERT INTO usuarios(email,alias,password) VALUES(:email,:alias,:password)',array(
+        array("email", $user, 'string'),array("password", $passwordMd5, 'string'),array("alias", $alias, 'string')
+    ));
+    return login($user,$password);
+}
