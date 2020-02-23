@@ -19,6 +19,15 @@ function getSmarty() {
     return $mySmarty;
 }
 
+function getSmartyForScenes() {
+    $mySmarty = new Smarty();
+    $mySmarty->template_dir = '../../../templates';
+    $mySmarty->compile_dir = '../../../templates_c';
+    $mySmarty->config_dir = '../../../config';
+    $mySmarty->cache_dir = '../../../cache';
+    return $mySmarty;
+}
+
 function getUser($user, $password) {
     $cn = getConnection();
     $passwordMd5 = md5($password);
@@ -26,12 +35,6 @@ function getUser($user, $password) {
         array("email", $user, 'string'),array("password", $passwordMd5, 'string')
     ));
     return $cn->siguienteRegistro();
-}
-
-function getCategories() {
-    $categories = array("Procesadores", "Memorias", "Discos", "Gabinetes"
-        , "Monitores", "Perifericos");
-    return $categories;
 }
 
 function login($user, $password) {
@@ -46,7 +49,7 @@ function login($user, $password) {
 }
 
 
-function registerÙser($user, $password, $alias) {
+function registerUser($user, $password, $alias) {
     $cn = getConnection();
     $passwordMd5 = md5($password);
     $cn->consulta('INSERT INTO usuarios(email,alias,password) VALUES(:email,:alias,:password)',array(

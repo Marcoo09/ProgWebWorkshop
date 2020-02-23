@@ -6,7 +6,7 @@ $user = $_POST["user"];
 $password = $_POST["password"];
 $alias = $_POST["alias"];
 
-$userLogued = registerÙser($user, $password, $alias);
+$userLogued = registerUser($user, $password, $alias);
 
 if (isset($userLogued)) {
     session_start();
