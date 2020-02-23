@@ -9,7 +9,7 @@
             Email: <input name="user" type="text"/><br>
             Alias: <input name="alias" type="text"/><br>
             Clave: <input name="password" type="password"/><br>
-            <input value="Login" type="submit"/><br>
+            <input value="Register" type="submit"/><br>
         </form>
     </body>
 </html>
