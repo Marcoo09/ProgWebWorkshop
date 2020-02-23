@@ -3,7 +3,7 @@
     ini_set('display_errors', true);
     require_once 'data.php';
     $mySmarty = getSmarty();
-    $mySmarty->display("producto.tpl");
+    $mySmarty->display("registerUser.tpl");
 ?>
 <html>
 	<head>
@@ -32,7 +32,7 @@
                                     echo('<li>Hola ' . $user["name"] . ' <a href="src/scenes/logout/doLogout.php">Salir</a></li>');
                                     echo('<li><a href="crearProducto.php">Crear Producto</a></li>');
                                 } else {
-                                    echo('<li><a href="src/scenes/login/login.php" target="login">Inicio de Sesion</a></li>');
+                                    echo('<li><a href="src/scenes/login/login.php">Inicio de Sesion</a></li>');
                                 }
                                 ?>
 				<li><a href="#">Contacto</a></li>
