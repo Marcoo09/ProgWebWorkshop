@@ -13,5 +13,5 @@ if (isset($userLogued)) {
     $_SESSION["userLogued"] = $userLogued;
     header('location:../../../index.php');
 } else {
-    header('location:login.php?err=1');
+    header('location:register.php?err=1');
 }

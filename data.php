@@ -54,10 +54,20 @@ function login($user, $password) {
     return NULL;
 }
 
+function userExist($email) {
+    $cn = getConnection();
+    $cn->consulta('SELECT id, email FROM usuarios WHERE email=:email', array(
+        array("email", $email, 'string')
+    ));
+    return $cn->cantidadRegistros() > 0;
+}
 
 function registerUser($user, $password, $alias) {
     $cn = getConnection();
     $passwordMd5 = md5($password);
+    if(userExist($user)){
+        return NULL;
+    }
     $cn->consulta('INSERT INTO usuarios(email,alias,password) VALUES(:email,:alias,:password)',array(
         array("email", $user, 'string'),array("password", $passwordMd5, 'string'),array("alias", $alias, 'string')
     ));
