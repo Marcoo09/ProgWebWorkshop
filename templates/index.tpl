@@ -36,12 +36,12 @@
 
             </ul>
         </div>
-        <div id="productos">
+        <div id="films">
             <h2>Films</h2>
             <ul>
                 {foreach from=$films item=film}
                     <li>
-                        <a href=#" class="film" filmId="{$film.id}">
+                        <a href="src/scenes/filmDetail/filmDetail.php/filmId={$film.id}"" class="film" filmId="{$film.id}">
                             {$film.titulo}
                         </a>
                     </li>
