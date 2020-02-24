@@ -6,10 +6,13 @@
     </head>
     <body>
         <form action="doRegister.php" method="POST">
-            Email: <input name="user" type="text"/><br>
-            Alias: <input name="alias" type="text"/><br>
-            Clave: <input name="password" type="password"/><br>
+            Email: <input name="user" type="email" required/><br>
+            Alias: <input name="alias" type="text" required/><br>
+            Clave: <input name="password" type="password" minlength="6" required/><br>
             <input value="Register" type="submit"/><br>
         </form>
+        {if (isset($err))}
+            <label>Usuario ya existente</label>
+        {/if}
     </body>
 </html>
