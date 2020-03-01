@@ -95,4 +95,10 @@ function getFilms(){
     return $cn->restantesRegistros();
 }
 
+function getFilm($filmId){
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM peliculas WHERE id = :id ', array(array("id", $filmId,'int')));
+    return $cn->siguienteRegistro();
+}
+
 //Films Helpers

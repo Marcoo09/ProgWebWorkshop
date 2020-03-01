@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="productos">
-            <h2>Film {$filmId}</h2>
+            <h2>Film {$film.titulo}</h2>
         </div>
     </body>
 </html>
