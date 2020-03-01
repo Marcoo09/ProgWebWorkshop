@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title>Guía de cine</title>
         <link rel="stylesheet" type="text/css" href="css/ventas.css">
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/index.js"></script>
     </head>
     <body>
 {*        {include file="encabezado.tpl"}*}
@@ -22,6 +24,8 @@
             <label>Ingresa tu busqueda</label>
             <input type="text"/>
             <input type="button" value="Buscar" />
+            <label><input type="radio" name="title" value="Titulo" checked>Titulo</label>
+            <label><input type="radio" name="genre" value="Genero">Genero</label>
         </div>
         <div id="genres">
             <h2>Géneros</h2>
@@ -37,17 +41,6 @@
             </ul>
         </div>
         <div id="films">
-            <h2>Films</h2>
-            <ul>
-                {foreach from=$films item=film}
-                    <li>
-                        <a href="src/scenes/filmDetail/filmDetail.php?filmId={$film.id}" class="film" filmId="{$film.id}">
-                            {$film.titulo}
-                        </a>
-                    </li>
-                {/foreach}
-
-            </ul>
         </div>
     </body>
 </html>
