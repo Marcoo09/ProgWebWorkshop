@@ -84,6 +84,12 @@ function getGenres(){
     return $cn->restantesRegistros();
 }
 
+function getGenreByName($genreName){
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM generos WHERE nombre = :name ', array(array("name", $genreName,'string')));
+    return $cn->siguienteRegistro();
+}
+
 function getGenre($genreId){
     $cn = getConnection();
     $cn->consulta('SELECT * FROM generos WHERE id = :id ', array(array("id", $genreId,'int')));
@@ -94,10 +100,27 @@ function getGenre($genreId){
 
 //Films Helpers
 
-
 function getFilms(){
     $cn = getConnection();
     $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
+    return $cn->restantesRegistros();
+}
+
+function getFilmsFiltered($filterText,$filterType){
+    if($filterText == ""){
+       return getFilms();
+    }
+    $cn = getConnection();
+    if($filterType == "title"){
+        $cn->consulta('SELECT * FROM peliculas WHERE titulo = :title ORDER BY titulo',array(array("title", $filterText,'string')));
+    }else{
+        $genre = getGenreByName($filterText);
+        if($genre){
+            $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :id_genre ORDER BY titulo',array(array("id_genre", $genre['id'],'string')));
+        }else{
+            return NULL;
+        }
+    }
     return $cn->restantesRegistros();
 }
 
