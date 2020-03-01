@@ -1,13 +1,16 @@
 let genre = 1;
 let page = 1;
+let searchText = "";
+let filterType = "title";
 
-function cargar() {
+function load() {
     $.ajax({
-//        url: "filmsWithPagination.php",
-                url: "src/components/films/filmsWithPagination.php",
+        url: "src/components/films/filmsWithPagination.php",
         data: {
             genreId: genre,
-            pag: page
+            pag: page,
+            searchText: searchText,
+            filterType: filterType
         },
         dataType: "html"
     }).done(function (resp) {
@@ -30,11 +33,19 @@ function cargar() {
 
 $(document).ready(function () {
 
+    $("#searchButton").click(() => {
+        genre = $(this).attr("genreId");
+        searchText = $("#searchField").val();
+        filterType = $("input[name='filterType']:checked").val();
+        page = 1;
+        load();
+    });
+    
     $(".genre").click(function () {
         genre = $(this).attr("genreId");
         page = 1;
-        cargar();
+        load();
     });
-    cargar();
+    load();
 });
 

@@ -22,10 +22,10 @@
         </div>
         <div id="buscador">
             <label>Ingresa tu busqueda</label>
-            <input type="text"/>
-            <input type="button" value="Buscar" />
-            <label><input type="radio" name="title" value="Titulo" checked>Titulo</label>
-            <label><input type="radio" name="genre" value="Genero">Genero</label>
+            <input type="text" id="searchField"/>
+            <input type="button" value="Buscar" id="searchButton" />
+            <label><input type="radio" name="filterType" value="title" checked>Titulo</label>
+            <label><input type="radio" name="filterType" value="genre">Genero</label>
         </div>
         <div id="genres">
             <h2>Géneros</h2>

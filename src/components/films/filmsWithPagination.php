@@ -4,6 +4,16 @@ require_once '../../../data.php';
 
 $mySmarty = getSmartyForScenes();
 
+$filterText = "";
+if (isset($_GET["searchText"])) {
+    $filterText = $_GET["searchText"];
+}
+
+$filterType = "title";
+if (isset($_GET["filterType"])) {
+    $filterType = $_GET["filterType"];
+}
+
 //
 //$catId = 1;
 //if (isset($_COOKIE["ultimaCategoria"])) {
@@ -24,7 +34,7 @@ $mySmarty = getSmartyForScenes();
 //    setcookie("ultimaCategoria", $catId, time() + (60 * 60 * 24), "/");
 //}
 
-$mySmarty->assign("films", getFilms());
+$mySmarty->assign("films", getFilmsFiltered($filterText,$filterType));
 
 //$mySmarty->assign("categoria", $categoria);
 //$mySmarty->assign("productos", getProductosDeCategoria($catId, $pag));
