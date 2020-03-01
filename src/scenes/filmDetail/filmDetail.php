@@ -10,6 +10,8 @@ $film = getFilm($filmId);
 
 $mySmarty = getSmartyForScenes();
 
+$mySmarty->assign("genre",getGenre($film['id_genero']));
 $mySmarty->assign("film",$film);
+$mySmarty->assign("cast",getCastByFilm($filmId));
 
 $mySmarty ->display('filmDetail.tpl');
