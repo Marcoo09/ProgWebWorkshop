@@ -42,6 +42,8 @@ $(document).ready(function () {
     });
     
     $(".genre").click(function () {
+        $("#searchField").val("");
+        searchText = "";
         genre = $(this).attr("genreId");
         page = 1;
         load();
