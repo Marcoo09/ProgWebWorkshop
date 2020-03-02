@@ -4,6 +4,7 @@ require_once '../../../data.php';
 
 $mySmarty = getSmartyForScenes();
 
+$genreId = 0;
 $filterText = "";
 if (isset($_GET["searchText"])) {
     $filterText = $_GET["searchText"];
@@ -14,32 +15,27 @@ if (isset($_GET["filterType"])) {
     $filterType = $_GET["filterType"];
 }
 
-//
-//$catId = 1;
-//if (isset($_COOKIE["ultimaCategoria"])) {
-//    $catId = $_COOKIE["ultimaCategoria"];
-//}
-//
-//if (isset($_GET["catId"])) {
-//    $catId = $_GET["catId"];
-//}
-//
+if (isset($_COOKIE["lastGenre"])) {
+    $genreId = $_COOKIE["lastGenre"];
+}
+
+if (isset($_GET["genreId"])) {
+    $genreId = $_GET["genreId"];
+}
+
+if($genreId == 0){
+    $films = getFilmsFiltered($filterText,$filterType);
+}else{
+   $films = getFilmsByGenreId($genreId); 
+    setcookie("lastGenre", $genreId, time() + (60 * 60 * 24), "/");
+}   
+
 //$pag = 1;
 //if (isset($_GET["pag"])) {
 //    $pag = $_GET["pag"];
 //}
-//
-//$categoria = getCategoria($catId);
-//if (isset($categoria)) {
-//    setcookie("ultimaCategoria", $catId, time() + (60 * 60 * 24), "/");
-//}
 
-$mySmarty->assign("films", getFilmsFiltered($filterText,$filterType));
-
-//$mySmarty->assign("categoria", $categoria);
-//$mySmarty->assign("productos", getProductosDeCategoria($catId, $pag));
-//$mySmarty->assign("pagina", $pag);
-//$mySmarty->assign("paginas", cantidadPaginasCategoria($catId));
+$mySmarty->assign("films",$films);
 
 # mostrar el template
 $mySmarty->display('filmsWithPagination.tpl');

@@ -130,6 +130,12 @@ function getFilm($filmId){
     return $cn->siguienteRegistro();
 }
 
+function getFilmsByGenreId($genreId){
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :genreId ', array(array("genreId", $genreId,'int')));
+    return $cn->restantesRegistros();
+}
+
 //Films Helpers
 
 //Casts Helpers

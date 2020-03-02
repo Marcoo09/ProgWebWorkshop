@@ -1,4 +1,4 @@
-let genre = 1;
+let genreId = 0;
 let page = 1;
 let searchText = "";
 let filterType = "title";
@@ -7,7 +7,7 @@ function load() {
     $.ajax({
         url: "src/components/films/filmsWithPagination.php",
         data: {
-            genreId: genre,
+            genreId: genreId,
             pag: page,
             searchText: searchText,
             filterType: filterType
@@ -34,7 +34,7 @@ function load() {
 $(document).ready(function () {
 
     $("#searchButton").click(() => {
-        genre = $(this).attr("genreId");
+        genreId = 0;
         searchText = $("#searchField").val();
         filterType = $("input[name='filterType']:checked").val();
         page = 1;
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $(".genre").click(function () {
         $("#searchField").val("");
         searchText = "";
-        genre = $(this).attr("genreId");
+        genreId = $(this).attr("genreId");
         page = 1;
         load();
     });
