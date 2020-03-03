@@ -30,12 +30,16 @@ if($genreId == 0){
     setcookie("lastGenre", $genreId, time() + (60 * 60 * 24), "/");
 }   
 
-//$pag = 1;
-//if (isset($_GET["pag"])) {
-//    $pag = $_GET["pag"];
-//}
+$page = 1;
+if (isset($_GET["pag"])) {
+    $page = $_GET["pag"];
+}
+
+$pages = ceil(count($films)/6);
 
 $mySmarty->assign("films",$films);
+$mySmarty->assign("page",$page);
+$mySmarty->assign("pages",$pages);
 
 # mostrar el template
 $mySmarty->display('filmsWithPagination.tpl');
