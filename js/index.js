@@ -16,18 +16,18 @@ function load() {
     }).done(function (resp) {
         $("#films").html(resp);
 
-//        $("#anterior").click(function () {
-//            pagina--;
-//            cargar();
-//        });
-//
-//        $("#siguiente").click(function () {
-//            pagina++;
-//            cargar();
-//        });
+        $("#back").click(function () {
+            page--;
+            load();
+        });
+
+        $("#next").click(function () {
+            page++;
+            load();
+        });
 
     }).fail(function () {
-        alert("error al cargar la pagina");
+        alert("Error 404 not found");
     });
 }
 
