@@ -41,7 +41,6 @@
         <h1>Información de comentarios</h1>
         <div id="comments">
             <h2>Comentarios</h2>
-            <ul>
                 {foreach from=$comments item=comment}
                     {if $comment.estado === "APROBADO"}
                         <label>
@@ -55,8 +54,15 @@
                         </label>
                     {/if}
                 {/foreach}
+                
+                {if (isset($userLogued)) && !$currentUserHasCommentsInThisFilm}
+                    <h2>Dar comentario</h2>
+                        <form action="doComment.php" method="POST">
+                            Comentario: <input name="comment" type="text"/><br>
+                            <input value="Comentar" type="submit"/><br>
+                        </form>
+                {/if}
 
-            </ul>
         </div>
     </body>
 </html>
