@@ -15,6 +15,8 @@ $punctuation = $_POST["punctuation"];
 
 addComment($filmId,$comment,$user['id'],$punctuation);
 
-header('location:filmDetail.php');
+updateFilmPunctuation($filmId);
+
+header('location:filmDetail.php?filmId=');
 
 
