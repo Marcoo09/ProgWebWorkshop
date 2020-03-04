@@ -5,6 +5,7 @@
         <title>Detalle pelicula</title>
     </head>
     <body>
+        <h1>Información de pelicula</h1>
         <div id="productos">
             <h2>{$film.titulo}</h2>
         </div>
@@ -35,7 +36,27 @@
             </ul>
         </div>
         <div id="images">
-            <img src="../../../img_films/{$film.id}"/>
+            <img style="height:100px;width:100px;" src="../../../img_films/{$film.id}"/>
+        </div>
+        <h1>Información de comentarios</h1>
+        <div id="comments">
+            <h2>Comentarios</h2>
+            <ul>
+                {foreach from=$comments item=comment}
+                    {if $comment.estado === "APROBADO"}
+                        <label>
+                            Mensaje: {$comment.mensaje}
+                        </label>
+                        <label>
+                            Id Usuario: {$comment.id_usuario}
+                        </label>
+                        <label>
+                           Estado {$comment.estado}
+                        </label>
+                    {/if}
+                {/foreach}
+
+            </ul>
         </div>
     </body>
 </html>

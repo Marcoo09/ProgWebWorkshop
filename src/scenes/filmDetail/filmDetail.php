@@ -7,11 +7,13 @@ if (isset($_GET["filmId"])) {
     $filmId = $_GET["filmId"];
 }
 $film = getFilm($filmId);
+$comments = getCommentsByFilmId($filmId);
 
 $mySmarty = getSmartyForScenes();
 
 $mySmarty->assign("genre",getGenre($film['id_genero']));
 $mySmarty->assign("film",$film);
 $mySmarty->assign("cast",getCastByFilm($filmId));
+$mySmarty->assign("comments",$comments);
 
 $mySmarty ->display('filmDetail.tpl');
