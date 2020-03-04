@@ -87,7 +87,7 @@ function getGenres(){
 
 function getGenreByName($genreName){
     $cn = getConnection();
-    $cn->consulta('SELECT * FROM generos WHERE nombre = :name ', array(array("name", $genreName,'string')));
+    $cn->consulta("SELECT * FROM generos WHERE nombre LIKE '%' :name '%' ", array(array("name", $genreName,'string')));
     return $cn->siguienteRegistro();
 }
 
@@ -113,7 +113,7 @@ function getFilmsFiltered($filterText,$filterType){
     }
     $cn = getConnection();
     if($filterType == "title"){
-        $cn->consulta('SELECT * FROM peliculas WHERE titulo = :title ORDER BY titulo',array(array("title", $filterText,'string')));
+        $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%' :title '%' ORDER BY titulo",array(array("title", $filterText,'string')));
     }else{
         $genre = getGenreByName($filterText);
         if($genre){
@@ -135,6 +135,13 @@ function getFilmsByGenreId($genreId){
     $cn = getConnection();
     $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :genreId ', array(array("genreId", $genreId,'int')));
     return $cn->restantesRegistros();
+}
+
+function updateFilmPunctuation($filmId){
+    $cn = getConnection();
+    $cn->consulta("UPDATE peliculas SET puntuacion = (SELECT avg(puntuacion) FROM comentarios WHERE id_pelicula = :filmId AND estado = 'APROBADO')",array(
+        array("filmId", $filmId, 'int')
+    ));
 }
 
 //Films Helpers
@@ -167,10 +174,11 @@ function checkIfUserDoAComment($filmId,$userId){
     return $cn->cantidadRegistros() > 0;
 }
 
-function addComment($filmId, $comment, $userId){
+function addComment($filmId, $comment, $userId,$punctuation){
     $cn = getConnection();
-    $cn->consulta('INSERT INTO comentarios(id_pelicula,mensaje,id_usuario) VALUES(:filmId,:message,:userId)',array(
-        array("filmId", $filmId, 'int'),array("message", $comment, 'string'),array("userId", $userId, 'int')
+    $cn->consulta('INSERT INTO comentarios(id_pelicula,mensaje,id_usuario,puntuacion) VALUES(:filmId,:message,:userId,:punctuation)',array(
+        array("filmId", $filmId, 'int'),array("message", $comment, 'string'),array("userId", $userId, 'int'),
+        array("punctuation", $punctuation,'int')
     ));
 }
 

@@ -59,6 +59,8 @@
                     <h2>Dar comentario</h2>
                         <form action="doComment.php" method="POST">
                             Comentario: <input name="comment" type="text"/><br>
+                            <input type="number" name="punctuation"
+                                min="1" max="5"><br>
                             <input value="Comentar" type="submit"/><br>
                         </form>
                 {/if}
