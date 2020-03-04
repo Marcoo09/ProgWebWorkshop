@@ -148,3 +148,13 @@ function getCastByFilm($filmId){
 }
 
 //Casts Helpers
+
+//Comments Helpers
+
+function getCommentsByFilmId($filmId){
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM comentarios WHERE id_pelicula = :filmId ', array(array("filmId", $filmId,'int')));
+    return $cn->restantesRegistros();
+}
+
+//Comments Helpers
