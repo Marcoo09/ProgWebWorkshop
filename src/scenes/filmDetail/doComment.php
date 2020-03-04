@@ -11,8 +11,9 @@ if (isset($_GET["filmId"])) {
 }
 
 $comment = $_POST["comment"];
+$punctuation = $_POST["punctuation"];
 
-addComment($filmId,$comment,$user['id']);
+addComment($filmId,$comment,$user['id'],$punctuation);
 
 header('location:filmDetail.php');
 

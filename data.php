@@ -167,10 +167,11 @@ function checkIfUserDoAComment($filmId,$userId){
     return $cn->cantidadRegistros() > 0;
 }
 
-function addComment($filmId, $comment, $userId){
+function addComment($filmId, $comment, $userId,$punctuation){
     $cn = getConnection();
-    $cn->consulta('INSERT INTO comentarios(id_pelicula,mensaje,id_usuario) VALUES(:filmId,:message,:userId)',array(
-        array("filmId", $filmId, 'int'),array("message", $comment, 'string'),array("userId", $userId, 'int')
+    $cn->consulta('INSERT INTO comentarios(id_pelicula,mensaje,id_usuario,puntuacion) VALUES(:filmId,:message,:userId,:punctuation)',array(
+        array("filmId", $filmId, 'int'),array("message", $comment, 'string'),array("userId", $userId, 'int'),
+        array("punctuation", $punctuation,'int')
     ));
 }
 
