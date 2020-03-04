@@ -3,13 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="styles.css" rel="stylesheet">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
-        <form action="doLogin.php" method="POST">
-            Usuario: <input name="user" type="text"/><br>
-            Clave: <input name="password" type="password"/><br>
-            <input value="Login" type="submit"/><br> 
-            <a href="../registerUser/register.php">Registrarme</a>
-        </form>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+              <!-- Tabs Titles -->
+
+              <!-- Icon -->
+              <div class="fadeIn first">
+                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+              </div>
+
+              <!-- Login Form -->
+              <form action="doLogin.php" method="POST">
+                <input name="user" id="login" class="fadeIn second" placeholder="Usuario" type="text"/>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"/>
+                <input type="submit" class="fadeIn fourth" value="Log In">
+              </form>
+
+              <!-- Remind Passowrd -->
+              <div id="formFooter">
+                <a class="underlineHover" href="../registerUser/register.php">Registrarme</a>
+              </div>
+
+            </div>
+        </div>
     </body>
 </html>
