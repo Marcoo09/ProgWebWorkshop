@@ -2,10 +2,16 @@
 require_once '../../../data.php';
 //ini_set('display_errors', 1);
 
+session_start();
+$user = $_SESSION["userLogued"];
+        
 $filmId = 1;
 if (isset($_GET["filmId"])) {
     $filmId = $_GET["filmId"];
 }
+
+$currentUserHasCommentsInThisFilm = checkIfUserDoAComment($filmId,$user['id']);
+
 $film = getFilm($filmId);
 $comments = getCommentsByFilmId($filmId);
 
@@ -15,5 +21,7 @@ $mySmarty->assign("genre",getGenre($film['id_genero']));
 $mySmarty->assign("film",$film);
 $mySmarty->assign("cast",getCastByFilm($filmId));
 $mySmarty->assign("comments",$comments);
+$mySmarty->assign("userLogued",$user);
+$mySmarty-> assign("currentUserHasCommentsInThisFilm",$currentUserHasCommentsInThisFilm);
 
 $mySmarty ->display('filmDetail.tpl');

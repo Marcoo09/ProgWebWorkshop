@@ -48,7 +48,8 @@ function login($user, $password) {
     if($userDB){
         return array(
             "user" => $userDB['email'],
-            "name" => $userDB['alias']
+            "name" => $userDB['alias'],
+            "id"   => $userDB['id']
         );
     }
     return NULL;
@@ -155,6 +156,22 @@ function getCommentsByFilmId($filmId){
     $cn = getConnection();
     $cn->consulta('SELECT * FROM comentarios WHERE id_pelicula = :filmId ', array(array("filmId", $filmId,'int')));
     return $cn->restantesRegistros();
+}
+
+function checkIfUserDoAComment($filmId,$userId){
+    $cn = getConnection();
+    $cn->consulta('SELECT id_usuario id_pelicula FROM comentarios WHERE id_pelicula = :filmId AND id_usuario = :userId ', array(
+        array("filmId",$filmId,'int'),
+        array("userId", $userId,'int')
+        ));
+    return $cn->cantidadRegistros() > 0;
+}
+
+function addComment($filmId, $comment, $userId){
+    $cn = getConnection();
+    $cn->consulta('INSERT INTO comentarios(id_pelicula,mensaje,id_usuario) VALUES(:filmId,:message,:userId)',array(
+        array("filmId", $filmId, 'int'),array("message", $comment, 'string'),array("userId", $userId, 'int')
+    ));
 }
 
 //Comments Helpers
