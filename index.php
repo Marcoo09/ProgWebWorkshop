@@ -1,5 +1,4 @@
 <?php
-
 require_once 'data.php';
 //ini_set('display_errors', 1);
 
