@@ -1,11 +1,11 @@
 <?php
+include 'env.php';
 require_once 'libs/Smarty.class.php';
 require_once 'src/helpers/class.Conexion.BD.php';
 
 function getConnection() {
-    $user = "root";
-    $password = "root";
-    $cn = new ConexionBD("mysql", "localhost", "guia_cine", $user, $password);
+    $cn = new ConexionBD(env('DB'), env('DB_HOST'),
+            env('DB_NAME'), env('DB_USERNAME'), env('DB_PASSWORD'));
     $cn->conectar();
     return $cn;
 }
