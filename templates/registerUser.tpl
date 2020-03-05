@@ -2,17 +2,39 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>registrar</title>
+        <title>Registrar</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="styles.css" rel="stylesheet">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
-        <form action="doRegister.php" method="POST">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <div class="fadeIn first">
+                    <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+                </div>
+                <form action="doRegister.php" method="POST">
+                    <input name="user" type="email" id="user" class="fadeIn first" placeholder="Usuario" required/>
+                    <input name="alias" id="alias" class="fadeIn second" placeholder="Alias" type="text" required/>
+                    <input type="password" id="password" class="fadeIn third" name="Password" placeholder="password"  minlength="6" required/>
+                    <input type="submit" class="fadeIn fourth" value="Registrar">
+                </form>
+                {if (isset($err))}
+                <div id="formFooter">
+                    Usuario ya existente
+                </div>                
+                {/if}
+            </div>
+        </div>
+{*        <form action="doRegister.php" method="POST">
             Email: <input name="user" type="email" required/><br>
             Alias: <input name="alias" type="text" required/><br>
             Clave: <input name="password" type="password" minlength="6" required/><br>
             <input value="Register" type="submit"/><br>
-        </form>
-        {if (isset($err))}
+        </form>*}
+{*        {if (isset($err))}
             <label>Usuario ya existente</label>
-        {/if}
+        {/if}*}
     </body>
 </html>
