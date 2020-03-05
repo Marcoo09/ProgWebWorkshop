@@ -3,6 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Detalle pelicula</title>
+        <script src="../../../js/jquery-3.4.1.min.js"></script>
+        <script  src="../../../js/filmDetail.js"></script>
+        <input type="hidden" value="{$filmId}" id="filmId" />
+        <input type="hidden" value="{$comment}" id="comment" />
     </head>
     <body>
         <h1>Información de pelicula</h1>
@@ -40,20 +44,7 @@
         </div>
         <h1>Información de comentarios</h1>
         <div id="comments">
-            <h2>Comentarios</h2>
-                {foreach from=$comments item=comment}
-                    {if $comment.estado === "APROBADO"}
-                        <label>
-                            Mensaje: {$comment.mensaje}
-                        </label>
-                        <label>
-                            Id Usuario: {$comment.id_usuario}
-                        </label>
-                        <label>
-                           Estado {$comment.estado}
-                        </label>
-                    {/if}
-                {/foreach}
+            
                 
                 {if (isset($userLogued)) && !$currentUserHasCommentsInThisFilm}
                     <h2>Dar comentario</h2>
@@ -62,9 +53,12 @@
                             <input type="number" name="punctuation"
                                 min="1" max="5"><br>
                             <input value="Comentar" type="submit"/><br>
+                            <input type="hidden" value="{$filmId}" id="filmIdent" />
                         </form>
                 {/if}
 
+        
+        <div id="commentlist">
         </div>
     </body>
 </html>
