@@ -39,9 +39,11 @@
 
             </ul>
         </div>
+                
         <div id="images">
             <img style="height:100px;width:100px;" src="../../../img_films/{$film.id}"/>
         </div>
+        
         <h1>Información de comentarios</h1>
         <div id="comments">
             
