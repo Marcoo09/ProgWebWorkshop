@@ -12,7 +12,7 @@ $user = $_SESSION["userLogued"];
 //$catId = 1;
 //if (isset($_COOKIE["ultimaCategoria"])) {
 //    $catId = $_COOKIE["ultimaCategoria"];
-//}
+//} 
 //
 //if (isset($_GET["catId"])) {
 //    $catId = $_GET["catId"];
@@ -26,6 +26,7 @@ $user = $_SESSION["userLogued"];
 # setear variables
 $mySmarty->assign("userLogued", $user);
 $mySmarty->assign("genres", getGenres());
+$mySmarty->assign("filtro", "title");
 
 # mostrar el template
 $mySmarty->display('index.tpl');

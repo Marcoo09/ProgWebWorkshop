@@ -1,0 +1,8 @@
+.gris{
+    background-color: transparent;
+}
+
+.custom-control-input input:checked{
+    
+    background-color: white;
+}
