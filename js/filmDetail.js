@@ -3,9 +3,7 @@ var filmId;
 var comment;    
 function load() {
     $.ajax({
-
         url: "../../../src/components/films/commentsWithPagination.php",
-        
         data: {      
             pag: page,
             Id: filmId,
@@ -31,7 +29,6 @@ function load() {
     });
 }
 $(document).ready(function () {
-    
     filmId = $("#filmId").val();       
     comment = $("#comment").val(); 
     load();

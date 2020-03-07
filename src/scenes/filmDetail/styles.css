@@ -1,0 +1,67 @@
+
+body{
+    background-color: #EAEAEA;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    font-family:'Roboto', sans-serif;
+    color: #333333;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: 900;
+}
+
+h2{
+    font-size: 30px;
+    line-height:1.1;
+}
+
+h4{
+    font-size:18px;
+    line-height:1.1;
+}
+
+p {
+    font-size:15px;
+    font-weight: 300;
+}
+
+.mainContainer{
+    padding-left:15px;
+}
+
+.secondaryContainer{
+    display: flex;   
+}
+
+.growable{
+    flex-grow: 1;
+    flex-basis:50%;
+}
+
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }

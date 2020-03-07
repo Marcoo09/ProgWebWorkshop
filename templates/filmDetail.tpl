@@ -5,46 +5,54 @@
         <title>Detalle pelicula</title>
         <script src="../../../js/jquery-3.4.1.min.js"></script>
         <script  src="../../../js/filmDetail.js"></script>
+        <link href="styles.css" rel="stylesheet">
         <input type="hidden" value="{$filmId}" id="filmId" />
         <input type="hidden" value="{$comment}" id="comment" />
     </head>
     <body>
-        <h1>Información de pelicula</h1>
-        <div id="productos">
-            <h2>{$film.titulo}</h2>
-        </div>
-        <div id="date">
-            <h3>{$film.fecha_lanzamiento}</h3>
-        </div>
-        <div id="summary">
-            <h3>{$film.resumen}</h3>
-        </div>
-        <div id="points">
-            <h3>{$film.puntuacion}</h3>
-        </div>
-        <div id="director">
-            <h3>{$film.director}</h3>
-        </div>
-        <div id="genre">
-            <h3>{$genre.nombre}</h3>
-        </div>
-        <div id="cast">
-            <h2>Elenco</h2>
-            <ul>
-                {foreach from=$cast item=actor}
-                    <li>
-                        {$actor.nombre}
-                    </li>
-                {/foreach}
-
-            </ul>
-        </div>
-                
         <div id="images">
             <img style="height:100px;width:100px;" src="../../../img_films/{$film.id}"/>
         </div>
-        
-        <h1>Información de comentarios</h1>
+        <div id="mainContainer" class="mainContainer">
+            <div id="nameContainer">
+                <h1>{$film.titulo}</h2>
+            </div>
+            <div id="descriptionContainer">
+                <h2>Descripción</h2>
+                <p>{$film.resumen}</p>
+            </div>
+            <div class="secondaryContainer">
+                <div class="firstColumn growable">
+                    <h4>Lanzamiento</h4>
+                    <p>{$film.fecha_lanzamiento}</p>
+                </div>
+                <div class="secondColumn growable">
+                    <h4>Director</h4>
+                    <p>{$film.director}</p>
+                </div>
+            </div>
+            <div class="secondaryContainer">
+                <div class="firstColumn growable">
+                    <h4>Género</h4>
+                    <p>{$genre.nombre}</p>
+                </div>
+                <div class="secondColumn growable">
+                    <h4>Puntuación</h4>
+                    <p>{$film.puntuacion}</p>
+                </div>                
+            </div> 
+            <div class="secondaryContainer">
+                <div class="firstColumn growable">
+                    <h4>Actores</h4>
+                        <p>
+                        {foreach from=$cast item=actor}
+                            {$actor.nombre},
+                        {/foreach}
+                        </p>
+                </div>
+            </div>             
+        </div>
+  
         <div id="comments">
             
                 

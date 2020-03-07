@@ -1,23 +1,38 @@
-<h2>Commentarios</h2>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <script src="../../../js/jquery-3.4.1.min.js"></script>
+</head>
 
-<ul>
-    {foreach from=$comentarios item=com name=count}
+    <div class="page-header">
+        <h1>Comentarios</h1>
+    </div> 
+    <div class="comments-list">
+        {foreach from=$comentarios item=com name=count}
         
-        {if (($smarty.foreach.count.iteration > ($page-1)*5)&&($smarty.foreach.count.iteration <= $page*5))}
-            {if ($com.estado == 'APROBADO')}
-            <li>
-                        <label>
-                        Usuario: {$com.id_usuario}:{$com.mensaje}
-                        </label>               
-            </li>
+           {if (($smarty.foreach.count.iteration > ($page-1)*5)&&($smarty.foreach.count.iteration <= $page*5))}
+                {if ($com.estado == 'APROBADO')}
+                
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading user_name">{$com.id_usuario}</h4>
+                        {$com.mensaje}
+                    </div>
+                    <div class="action">
+                        <button type="button" title="Approved">
+                            <i class="fas fa-check-square"></i>
+                        </button>
+                        <button type="button" title="Delete">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                {/if}
             {/if}
-        {/if}
          
-    {/foreach}
-</ul>
-
-<div id="paginacion">
-    <button id="back" {if ($page<=1)}disabled{/if}>Anterior</button>
-    Pagina {$page} de {$pages}
-    <button id="next" {if ($page>=$pages)}disabled{/if}>Siguiente</button>
-</div>
+        {/foreach}
+        <div id="paginacion">
+            <button id="back" {if ($page<=1)}disabled{/if}>Anterior</button>
+            Pagina {$page} de {$pages}
+            <button id="next" {if ($page>=$pages)}disabled{/if}>Siguiente</button>
+        </div>
+    </div>
