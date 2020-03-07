@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <title>Guía de cine</title>
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="css/simple-sidebar.css">
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/index.js"></script>
+        
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Google Fonts -->
@@ -14,7 +16,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
-       
+
     </head>
 
     <body>
@@ -26,7 +28,7 @@
 
 
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -35,12 +37,12 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            
+
                             <form class="form-inline my-2 my-lg-0">
 
                                 <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
 
-                                <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="submit">Buscar</button>
+                                <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
 
                             </form>
                         </li>
@@ -85,24 +87,46 @@
 
         </nav>
 
+        <div class="d-flex" id="wrapper">
 
+            <!-- Sidebar -->
 
-        <div id="genres">
-            <h2>Géneros</h2>
-            <ul>
-                {foreach from=$genres item=genre}
-                    <li>
-                        <a href=#" class="genre" genreId="{$genre.id}">
+            <div class="bg-gradient-dark border-right" id="sidebar-wrapper" >
+                <div class="sidebar-heading" id="genres">Géneros</div>
+                <div class="list-group list-group-flush">
+
+                    {foreach from=$genres item=genre}
+
+                        <a href="#" class="list-group-item list-group-item-action bg-gradient-dark" genreId="{$genre.id}">
                             {$genre.nombre}
                         </a>
-                    </li>
-                {/foreach}
 
-            </ul>
-        </div>
 
-        <div id="films">
+                    {/foreach}
+
+                </div>
+
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper ">
+
+                <button class="btn btn-dark" id="menu-toggle">+</button>
+
+                <div class="container-fluid">
+
+                    <div id="films">
+                    </div>
+
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
+        <!-- /#wrapper -->
+
+
 
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -112,5 +136,8 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
+   
+        
+        
     </body>
 </html>
