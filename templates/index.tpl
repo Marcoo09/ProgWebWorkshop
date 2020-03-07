@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/simple-sidebar.css">
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/index.js"></script>
-        
+
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Google Fonts -->
@@ -41,9 +41,11 @@
                             <form class="form-inline my-2 my-lg-0">
 
                                 <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
-
-                                <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
-
+                              
+                                
+                                    <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
+                              
+                                
                             </form>
                         </li>
 
@@ -67,8 +69,8 @@
                                     <a class="dropdown-item">{$userLogued.name}</a>
                                     <div class="dropdown-divider"></div>
                                     {if ({$userLogued.is_admin}==1)}
-                                    <a class="dropdown-item" href="src/scenes/SaveFilm/saveFilm.php">Alta película</a>
-                                    <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="src/scenes/SaveFilm/saveFilm.php">Alta película</a>
+                                        <div class="dropdown-divider"></div>
                                     {/if}
                                     <a class="dropdown-item" href="src/scenes/logout/doLogout.php">Salir</a> 
                                 </div>
@@ -140,8 +142,8 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
-   
-        
-        
+
+
+
     </body>
 </html>

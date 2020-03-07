@@ -2,57 +2,83 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="addFilm.css">
+
         <title>Nueva pelicula</title>
     </head>
     <body>
+
+
+
         <form method="POST" action="doSaveFilm.php"
               enctype="multipart/form-data">
 
-            <div class="form-group">
-
-                <label for="exampleInputEmail1">Título</label>
-                <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Ingresar Título">
-
-            </div>
-
-            <form>
+            <div class="container contact-form">
+                <br>
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="First name">
+                        <input type="text" name="title" class="form-control" placeholder="Titulo" required>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name">
+                        <input type="date" name="dateRelease"" class="form-control" placeholder="Fecha de lanzamiento" required>
                     </div>
                 </div>
-            </form>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="director" class="form-control" placeholder="Director" required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <textarea type="text" name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción" required></textarea>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="youtube" class="form-control" placeholder="Enlace de YouTube">
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <select name="genre" class="custom-select">
+                        {foreach from=$genre item=c}
+                            <option value="{$c.id}">{$c.nombre}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <br>   
+                <div class="custom-file">
+                    <input type="file" accept=".jpg,.png" name="image" id="customFile" />
+                    <label class="custom-file-label" for="customFile">Elegir imagen</label>
+                </div>
+                <br>
+                
+                <div class="allign-right">
+                    <input class="btn btn-outline-dark my-2 my-sm-0" value="Guardar" id="searchButton" type="submit"/>
+                </div>
+                
+            </div>
 
-
-            <label>Fecha de lanzamiento</label>
-            <input type="date" name="dateRelease" required/>
-            <br>
-            <label>Descripción</label>
-            <input type="text" name="description" required/>
-            <br>
-            <label>Director</label>
-            <input type="text" name="director" required/>
-            <br>
-            <label>Enlace de YouTube</label>
-            <input type="text" name="youtube" />
-            <br>        
-
-            <label>Género</label>
-            <select name="genre">
-                {foreach from=$genre item=c}
-                    <option value="{$c.id}">{$c.nombre}</option>
-                {/foreach}
-            </select>
-
-            <br>
-
-            <label>Imagen</label>
-            <input type="file" accept=".jpg,.png" name="image" required/>
-            <br>
-            <input type="submit" value="Guardar" />
         </form>
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
+
     </body>
 </html>
