@@ -55,7 +55,6 @@
   
         <div id="comments">
             
-                
                 {if (isset($userLogued)) && !$currentUserHasCommentsInThisFilm}
                     <h2>Dar comentario</h2>
                         <form action="doComment.php" method="POST">

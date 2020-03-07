@@ -204,4 +204,20 @@ function SaveFilm($title, $genre, $dateRelease, $description,  $director, $youtu
         move_uploaded_file($image, "/img_films" . $id);
     }
 }
+
+function updateCommentStatus($commentId, $status){
+        $cn = getConnection();
+        if($status === 'APPROVED'){
+            $cn->consulta('UPDATE comentarios SET estado = :status WHERE id = :commentId',array(
+                array("commentId", $commentId,'int'),  
+                array("status", 'APROBADO','string')
+            ));            
+        }else{
+            $cn->consulta('UPDATE comentarios SET estado = :status WHERE id = :commentId',array(
+                array("commentId", $commentId,'int'),  
+                array("status", 'RECHAZADO','string')
+            ));    
+        }
+}
+
 //Comments Helpers

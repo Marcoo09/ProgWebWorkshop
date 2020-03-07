@@ -1,13 +1,14 @@
-var page = 1;
-var filmId;  
-var comment;    
+let page = 1;
+let filmId;  
+let comment;    
+
 function load() {
     $.ajax({
         url: "../../../src/components/films/commentsWithPagination.php",
         data: {      
             pag: page,
             Id: filmId,
-            comment: comment
+            comment: comment,
         },
         type: "GET",
         dataType: "html"

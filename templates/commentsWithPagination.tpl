@@ -10,7 +10,7 @@
         {foreach from=$comentarios item=com name=count}
         
            {if (($smarty.foreach.count.iteration > ($page-1)*5)&&($smarty.foreach.count.iteration <= $page*5))}
-                {if ($com.estado == 'APROBADO')}
+{*                {if ($com.estado == 'APROBADO')}*}
                 
                 <div class="media">
                     <div class="media-body">
@@ -18,15 +18,19 @@
                         {$com.mensaje}
                     </div>
                     <div class="action">
-                        <button type="button" title="Approved">
+                        <a href="doApprove.php?commentId={$com.id}&filmId={$com.id_pelicula}">
+                        <button type="button" id="approve" title="Approved">
                             <i class="fas fa-check-square"></i>
                         </button>
-                        <button type="button" title="Delete">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
+                        </a>
+                        <a href="doDenie.php?commentId={$com.id}&filmId={$com.id_pelicula}">
+                            <button type="button" id="denie" title="denie">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </a>
                     </div>
                 </div>
-                {/if}
+{*                {/if}*}
             {/if}
          
         {/foreach}
