@@ -201,7 +201,7 @@ function SaveFilm($title, $genre, $dateRelease, $description,  $director, $youtu
 
     $id = $cn->ultimoIdInsert();
     if (is_uploaded_file($image)) {
-        move_uploaded_file($image, "/img_films" . $id);
+        move_uploaded_file($image, "../../../img_films/".$id);
     }
 }
 
