@@ -14,7 +14,7 @@ function load() {
         },
         dataType: "html"
     }).done(function (resp) {
-        
+
         $("#films").html(resp);
 
         $("#back").click(function () {
@@ -33,33 +33,41 @@ function load() {
 }
 
 $(document).ready(function () {
-   
-    $("#searchButton").on("click",function(event) {
+
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+
+    $("#searchButton").on("click", function (event) {
         genreId = 0;
         searchText = $("#searchField").val();
         page = 1;
         load();
     });
-    
-     $("#Ftitle").on("click",function(event){
-      genreId = 0; 
-      filterType = "title";
-      page = 1; 
-     });
-     
-     $("#Fgenre").on("click",function(event){
-      genreId = 0;
-      filterType = "genre";
-      page = 1;
-     });
-    
-    $(".genre").click(function () {
+
+    $("#Ftitle").on("click", function (event) {
+        genreId = 0;
+        filterType = "title";
+        page = 1;
+    });
+
+    $("#Fgenre").on("click", function (event) {
+        genreId = 0;
+        filterType = "genre";
+        page = 1;
+    });
+
+    $(".list-group-item").on("click", function (event) {
         $("#searchField").val("");
         searchText = "";
         genreId = $(this).attr("genreId");
         page = 1;
         load();
     });
+    
+   
     load();
 });
 
