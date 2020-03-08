@@ -10,8 +10,11 @@
         <input type="hidden" value="{$comment}" id="comment" />
     </head>
     <body>
-        <div id="images">
-            <img style="height:100px;width:100px;" src="../../../img_films/{$film.id}"/>
+        
+        <div class="big-banner">
+                <img src="../../../img_films/{$film.id}-big">
+                <div class="big-banner-shadow"></div>
+                <!---->
         </div>
         <div id="mainContainer" class="mainContainer">
             <div id="nameContainer">
