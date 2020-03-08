@@ -18,6 +18,29 @@
     background-color: white;
 }
 
+.barsContainer{
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #000;
+  overflow: auto;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  color:white;
+}
+
+.list-group a:hover{
+      background-color: #8a8888;
+      color: white;
+}
+
 body {
     /*margin: 0;*/
     /*padding: 0;*/

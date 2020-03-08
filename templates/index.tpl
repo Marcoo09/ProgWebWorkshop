@@ -21,16 +21,9 @@
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark black scrolling-navbar">
-
-            <a class="navbar-brand" href="#">Film&Chips</a>
-
+            <a class="navbar-brand" href="index.php">Film&Chips</a>
+            <a href="#" class="barsContainer" id="menu-toggle"><i class="fa fa-fw fa-bars"></i></a>
             <div class="container">
-
-
-
-                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -89,8 +82,6 @@
 
             </div>
 
-
-
         </nav>
 
         <div class="d-flex" id="wrapper">
@@ -117,8 +108,6 @@
 
             <!-- Page Content -->
             <div id="page-content-wrapper ">
-
-                <button class="btn btn-dark" id="menu-toggle">+</button>
 
                 <div class="container-fluid">
                     <div id="films">
