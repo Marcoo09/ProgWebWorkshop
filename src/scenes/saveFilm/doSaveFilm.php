@@ -7,11 +7,12 @@ $userLogued = $_SESSION["userLogued"];
 
 if (isset($userLogued)&&($userLogued[is_admin] == 1)) {
   
-    $image = $_FILES["image"]["tmp_name"];
-   
-   SaveFilm($_POST["title"],$_POST["genre"],$_POST["dateRelease"], 
+    $image = $_FILES["image"]["tmp_name"][0];
+    $bigImage = $_FILES["bigImage"]["tmp_name"][0];
+
+   saveFilm($_POST["title"],$_POST["genre"],$_POST["dateRelease"], 
             $_POST["description"],$_POST["director"],$_POST["youtube"]
-            ,$image);
+            ,$image, $bigImage);
     
    header('location:../../../index.php');
 }

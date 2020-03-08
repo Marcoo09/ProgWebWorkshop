@@ -71,7 +71,7 @@
                                         <a class="dropdown-item">{$userLogued.name}</a>
                                         <div class="dropdown-divider"></div>
                                         {if ({$userLogued.is_admin}==1)}
-                                            <a class="dropdown-item" href="src/scenes/SaveFilm/saveFilm.php">Alta película</a>
+                                            <a class="dropdown-item" href="src/scenes/saveFilm/saveFilm.php">Alta película</a>
                                             <div class="dropdown-divider"></div>
                                         {/if}
                                         <a class="dropdown-item" href="src/scenes/logout/doLogout.php">Salir</a> 
