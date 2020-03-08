@@ -109,10 +109,25 @@
 </html>
 
 
+<div class="pagination">
+    {if ($page<=1)}
+        <li class="page-item disabled"><a class="" id="back" href="#">&laquo;</a></li>
+    {else}
+        <li class="page-item disabled"><a class="" id="back" href="#">&laquo;</a></li>
+    {/if} 
+    <li class="page-item disabled"><a class="" href="#">{$page}</a></li>
+    <li class="page-item disabled"><a class="" href="#">De</a></li>
+    <li class="page-item disabled"><a class="" href="#">{$pages}</a></li>
+    {if ($page>=$pages)}
+        <li class="page-item disabled"><a class="" id="next" href="#">&raquo;</a></li>
+    {else}
+        <li class="page-item"><a class="" id="next" href="#">&raquo;</a></li>
+    {/if}
+</div>
 
-<div class="pagination" id="paginacion">
+{*<div class="pagination" id="paginacion">*}
 
-    <nav aria-label="Page navigation example">
+{*    <nav aria-label="Page navigation example">
         <ul class="pagination">
             {if ($page<=1)}
                 <li class="page-item disabled"><a class="page-link" id="back" href="#">Previous</a></li>
@@ -129,8 +144,8 @@
                 <li class="page-item"><a class="page-link" id="next" href="#">Next</a></li>
                 {/if}
         </ul>
-    </nav>
+    </nav>*}
 
 
 
-</div>
+{*</div>*}
