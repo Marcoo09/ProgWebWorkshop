@@ -113,7 +113,7 @@
     {if ($page<=1)}
         <li class="page-item disabled"><a class="" id="back" href="#">&laquo;</a></li>
     {else}
-        <li class="page-item disabled"><a class="" id="back" href="#">&laquo;</a></li>
+        <li class="page-item"><a class="" id="back" href="#">&laquo;</a></li>
     {/if} 
     <li class="page-item disabled"><a class="" href="#">{$page}</a></li>
     <li class="page-item disabled"><a class="" href="#">De</a></li>
