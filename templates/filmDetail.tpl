@@ -62,7 +62,7 @@
                             <input type="number" name="punctuation"
                                 min="1" max="5"><br>
                             <input value="Comentar" type="submit"/><br>
-                            <input type="hidden" value="{$filmId}" id="filmIdent" />
+                            <input type="hidden" value="{$filmId}" name="filmId" />
                         </form>
                 {/if}
 

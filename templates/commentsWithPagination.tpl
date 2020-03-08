@@ -3,9 +3,11 @@
     <script src="../../../js/jquery-3.4.1.min.js"></script>
 </head>
 
-<div class="page-header">
-    <h1>Comentarios</h1>
-</div> 
+{if count($comentarios) > 0}
+    <div class="page-header">
+        <h1>Comentarios</h1>
+    </div> 
+{/if}
 <div>
     {foreach from=$comentarios item=com name=count}
 
@@ -32,22 +34,24 @@
                         </a>
                     </div>
                 </div>
-                {elseif ($com.estado == 'APROBADO')}
-                    <div class="media">
-                        <div class="media-body">
-                            <h4 class="media-heading user_name">{$com.id_usuario}</h4>
-                            {$com.mensaje}
-                        </div>
-                    </div>                    
+            {elseif ($com.estado == 'APROBADO')}
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading user_name">{$com.id_usuario}</h4>
+                        {$com.mensaje}
+                    </div>
+                </div>                    
 
             {/if}
 
         {/if}
 
     {/foreach}
-    <div id="paginacion">
-        <button id="back" {if ($page<=1)}disabled{/if}>Anterior</button>
-        Pagina {$page} de {$pages}
-        <button id="next" {if ($page>=$pages)}disabled{/if}>Siguiente</button>
-    </div>
+    {if count($comentarios) > 0}
+        <div id="paginacion">
+            <button id="back" {if ($page<=1)}disabled{/if}>Anterior</button>
+            Pagina {$page} de {$pages}
+            <button id="next" {if ($page>=$pages)}disabled{/if}>Siguiente</button>
+        </div>
+    {/if}
 </div>

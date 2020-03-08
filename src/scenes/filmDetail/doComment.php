@@ -5,7 +5,7 @@ require_once '../../../data.php';
 session_start();
 $user = $_SESSION["userLogued"];
 
-$filmId = $_POST["filmIdent"];
+$filmId = $_POST["filmId"];
 $comment = $_POST["comment"];
 $punctuation = $_POST["punctuation"];
 
