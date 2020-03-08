@@ -13,8 +13,7 @@ function load() {
             filterType: filterType
         },
         dataType: "html"
-    }).done(function (resp) {
-
+    }).done(function (resp) {        
         $("#films").html(resp);
 
         $("#back").click(function () {
@@ -32,6 +31,10 @@ function load() {
     });
 }
 
+$(window).on("load",function(){
+    $(".loader-wrapper").fadeOut("slow");
+});
+        
 $(document).ready(function () {
 
     $("#menu-toggle").click(function (e) {

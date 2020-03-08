@@ -20,107 +20,117 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark black scrolling-navbar">
-            <a class="navbar-brand" href="index.php">Film&Chips</a>
-            <a href="#" class="barsContainer" id="menu-toggle"><i class="fa fa-fw fa-bars"></i></a>
-            <div class="container">
+        <div class="loader-wrapper">
+            <span class="loader"><span class="loader-inner">
+                    <img style="height:60px; width:60px" src="./img/loading.png"/>
+                </span>
+            </span>
+        </div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="content">
 
-                    <ul class="navbar-nav ml-auto">
+            <nav class="navbar navbar-expand-lg navbar-dark black scrolling-navbar">
+                <a class="navbar-brand" href="index.php">Film&Chips</a>
+                <a href="#" class="barsContainer" id="menu-toggle"><i class="fa fa-fw fa-bars"></i></a>
+                <div class="container">
 
-                        <li class="nav-item">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                            <form class="form-inline my-2 my-lg-0">
+                        <ul class="navbar-nav ml-auto">
 
-                                <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
+                            <li class="nav-item">
 
+                                <form class="form-inline my-2 my-lg-0">
 
-                                <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
-
-
-                            </form>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Filtro
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" id="Ftitle" name="filterType" value="title" href="#">Titulo</a>
-                                <a class="dropdown-item" id="Fgenre" name="filterType" value="genre" href="#">Genero</a>
-                            </div>
-                        </li>
+                                    <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Perfil
-                            </a>
-                            {if (isset($userLogued))}
+                                    <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
+
+
+                                </form>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Filtro
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item">{$userLogued.name}</a>
-                                    <div class="dropdown-divider"></div>
-                                    {if ({$userLogued.is_admin}==1)}
-                                        <a class="dropdown-item" href="src/scenes/SaveFilm/saveFilm.php">Alta película</a>
+                                    <a class="dropdown-item" id="Ftitle" name="filterType" value="title" href="#">Titulo</a>
+                                    <a class="dropdown-item" id="Fgenre" name="filterType" value="genre" href="#">Genero</a>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Perfil
+                                </a>
+                                {if (isset($userLogued))}
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item">{$userLogued.name}</a>
                                         <div class="dropdown-divider"></div>
-                                    {/if}
-                                    <a class="dropdown-item" href="src/scenes/logout/doLogout.php">Salir</a> 
-                                </div>
-                            {else}
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="src/scenes/login/login.php">Inicio de Sesión</a> 
-                                </div>
-                            {/if}
-                        </li>
+                                        {if ({$userLogued.is_admin}==1)}
+                                            <a class="dropdown-item" href="src/scenes/SaveFilm/saveFilm.php">Alta película</a>
+                                            <div class="dropdown-divider"></div>
+                                        {/if}
+                                        <a class="dropdown-item" href="src/scenes/logout/doLogout.php">Salir</a> 
+                                    </div>
+                                {else}
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="src/scenes/login/login.php">Inicio de Sesión</a> 
+                                    </div>
+                                {/if}
+                            </li>
 
-                    </ul>      
+                        </ul>      
 
-                </div>
-
-
-
-            </div>
-
-        </nav>
-
-        <div class="d-flex" id="wrapper">
-
-            <!-- Sidebar -->
-
-            <div class="bg-gradient-dark border-right sidebar-container" id="sidebar-wrapper" >
-                <div class="sidebar-heading" id="genres">Géneros</div>
-                <div class="list-group list-group-flush">
-
-                    {foreach from=$genres item=genre}
-
-                        <a href="#" class="list-group-item list-group-item-action bg-gradient-dark" genreId="{$genre.id}">
-                            {$genre.nombre}
-                        </a>
+                    </div>
 
 
-                    {/foreach}
 
                 </div>
 
-            </div>
-            <!-- /#sidebar-wrapper -->
+            </nav>
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper ">
+            <div class="d-flex" id="wrapper">
 
-                <div class="container-fluid">
-                    <div id="films">
+                <!-- Sidebar -->
+
+                <div class="bg-gradient-dark border-right sidebar-container" id="sidebar-wrapper" >
+                    <div class="sidebar-heading" id="genres">Géneros</div>
+                    <div class="list-group list-group-flush">
+
+                        {foreach from=$genres item=genre}
+
+                            <a href="#" class="list-group-item list-group-item-action bg-gradient-dark" genreId="{$genre.id}">
+                                {$genre.nombre}
+                            </a>
+
+
+                        {/foreach}
+
                     </div>
 
                 </div>
+                <!-- /#sidebar-wrapper -->
+
+                <!-- Page Content -->
+                <div id="page-content-wrapper ">
+
+                    <div class="container-fluid">
+                        <div id="films">
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /#page-content-wrapper -->
+
             </div>
-            <!-- /#page-content-wrapper -->
+            <!-- /#wrapper -->
+
 
         </div>
-        <!-- /#wrapper -->
-
-
 
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
