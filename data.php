@@ -158,7 +158,7 @@ function getCastByFilm($filmId) {
 
 function getCommentsByFilmId($filmId) {
     $cn = getConnection();
-    $cn->consulta('SELECT * FROM comentarios WHERE id_pelicula = :filmId ', array(array("filmId", $filmId, 'int')));
+    $cn->consulta('SELECT * FROM comentarios WHERE id_pelicula = :filmId ORDER BY id desc', array(array("filmId", $filmId, 'int')));
     return $cn->restantesRegistros();
 }
 
