@@ -41,11 +41,11 @@
                             <form class="form-inline my-2 my-lg-0">
 
                                 <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
-                              
-                                
-                                    <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
-                              
-                                
+
+
+                                <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
+
+
                             </form>
                         </li>
 
@@ -97,7 +97,7 @@
 
             <!-- Sidebar -->
 
-            <div class="bg-gradient-dark border-right" id="sidebar-wrapper" >
+            <div class="bg-gradient-dark border-right sidebar-container" id="sidebar-wrapper" >
                 <div class="sidebar-heading" id="genres">Géneros</div>
                 <div class="list-group list-group-flush">
 
@@ -121,7 +121,6 @@
                 <button class="btn btn-dark" id="menu-toggle">+</button>
 
                 <div class="container-fluid">
-
                     <div id="films">
                     </div>
 

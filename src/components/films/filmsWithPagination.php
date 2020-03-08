@@ -37,9 +37,16 @@ if (isset($_GET["pag"])) {
 
 $pages = ceil(count($films)/6);
 
+$arrayGenres = array();
+$genres = getGenres();
+foreach($genres as $genre){
+    $arrayGenres= $arrayGenres + array($genre['id'] => $genre['nombre']);
+}
+
 $mySmarty->assign("films",$films);
 $mySmarty->assign("page",$page);
 $mySmarty->assign("pages",$pages);
+$mySmarty->assign("arrayGenres",$arrayGenres);
 
 # mostrar el template
 $mySmarty->display('filmsWithPagination.tpl');
