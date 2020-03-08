@@ -15,7 +15,13 @@ if (isset($_GET["pag"])) {
 $Id = $_GET["Id"];
 
 $comentarios = getCommentsByFilmId($Id);
-$pages = ceil(count($comentarios)/5);
+$quantityOfElements;
+if(isset($user) && $user['is_admin']){
+    $quantityOfElements = count($comentarios);
+}else{
+    $quantityOfElements = getQuantityOfApprovedCommentsByFilmId($Id);
+}
+$pages = ceil($quantityOfElements/5);
 
 $mySmarty->assign("page",$page);
 $mySmarty->assign("pages",$pages);

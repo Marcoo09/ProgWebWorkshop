@@ -162,6 +162,13 @@ function getCommentsByFilmId($filmId) {
     return $cn->restantesRegistros();
 }
 
+function getQuantityOfApprovedCommentsByFilmId($filmId) {
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM comentarios WHERE id_pelicula = :filmId AND estado = :status', array(array("filmId", $filmId, 'int'),
+                                    array('status','APROBADO','string')));
+    return $cn->cantidadRegistros();
+}
+
 function checkIfUserDoAComment($filmId, $userId) {
     $cn = getConnection();
     $cn->consulta('SELECT id_usuario id_pelicula FROM comentarios WHERE id_pelicula = :filmId AND id_usuario = :userId ', array(
