@@ -21,16 +21,9 @@
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark black scrolling-navbar">
-
-            <a class="navbar-brand" href="#">Film&Chips</a>
-
+            <a class="navbar-brand" href="index.php">Film&Chips</a>
+            <a href="#" class="barsContainer" id="menu-toggle"><i class="fa fa-fw fa-bars"></i></a>
             <div class="container">
-
-
-
-                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -41,11 +34,11 @@
                             <form class="form-inline my-2 my-lg-0">
 
                                 <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
-                              
-                                
-                                    <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
-                              
-                                
+
+
+                                <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
+
+
                             </form>
                         </li>
 
@@ -89,15 +82,13 @@
 
             </div>
 
-
-
         </nav>
 
         <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
 
-            <div class="bg-gradient-dark border-right" id="sidebar-wrapper" >
+            <div class="bg-gradient-dark border-right sidebar-container" id="sidebar-wrapper" >
                 <div class="sidebar-heading" id="genres">Géneros</div>
                 <div class="list-group list-group-flush">
 
@@ -118,10 +109,7 @@
             <!-- Page Content -->
             <div id="page-content-wrapper ">
 
-                <button class="btn btn-dark" id="menu-toggle">+</button>
-
                 <div class="container-fluid">
-
                     <div id="films">
                     </div>
 
