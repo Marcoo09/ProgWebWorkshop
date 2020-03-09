@@ -11,10 +11,6 @@
     <body>
         <div class="wrapper fadeInDown">
             <div id="formContent">
-              <div class="fadeIn first">
-                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-              </div>
-
               <!-- Login Form -->
               <form action="doLogin.php" method="POST">
                 <input name="user" id="user" class="fadeIn second" placeholder="Usuario" type="text"/>

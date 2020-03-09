@@ -3,15 +3,17 @@
     <script src="../../../js/jquery-3.4.1.min.js"></script>
 </head>
 
-{if count($comentarios) > 0}
+{if $quantityOfComments > 0}
     <div class="page-header">
         <h1>Comentarios</h1>
     </div> 
 {/if}
 <div>
     {foreach from=$comentarios item=com name=count}
-
-        {if (($smarty.foreach.count.iteration > ($page-1)*5)&&($smarty.foreach.count.iteration <= $page*5))}
+        {if ((($smarty.foreach.count.iteration > ($page-1)*5)
+&&($smarty.foreach.count.iteration <= $page*5)) || $quantityOfComments <= $page*5
+)
+        }
             {if (isset($userLogued)) && $userLogued.is_admin}
                 <div class="media">
                     <div class="media-body">
@@ -34,20 +36,19 @@
                         </a>
                     </div>
                 </div>
-            {elseif ($com.estado == 'APROBADO')}
+            {elseif ($com.estado == "APROBADO")}
                 <div class="media">
                     <div class="media-body">
                         <h4 class="media-heading user_name">{$com.id_usuario}</h4>
                         {$com.mensaje}
                     </div>
                 </div>                    
-
             {/if}
 
         {/if}
 
     {/foreach}
-    {if count($comentarios) > 0}
+    {if $quantityOfComments > 0}
         <div id="paginacion">
             <button id="back" {if ($page<=1)}disabled{/if}>Anterior</button>
             Pagina {$page} de {$pages}

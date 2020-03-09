@@ -16,7 +16,7 @@ $Id = $_GET["Id"];
 
 $comentarios = getCommentsByFilmId($Id);
 $quantityOfElements;
-if(isset($user) && $user['is_admin']){
+if($user['is_admin']){
     $quantityOfElements = count($comentarios);
 }else{
     $quantityOfElements = getQuantityOfApprovedCommentsByFilmId($Id);
@@ -28,6 +28,7 @@ $mySmarty->assign("pages",$pages);
 $mySmarty->assign("Id",$Id);
 $mySmarty->assign("comentarios",$comentarios);
 $mySmarty->assign("userLogued",$user);
+$mySmarty->assign('quantityOfComments',$quantityOfElements);
 
 # mostrar el template
 $mySmarty->display('commentsWithPagination.tpl');
