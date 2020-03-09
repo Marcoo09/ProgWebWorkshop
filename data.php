@@ -34,6 +34,14 @@ function getSmartyForScenes() {
 //Smarty Helpers
 //Onboarding Helpers
 
+function getUserById($id) {
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM usuarios WHERE id=:id ', array(
+        array("id", $id, 'int')
+    ));
+    return $cn->siguienteRegistro();
+}
+
 function getUser($user, $password) {
     $cn = getConnection();
     $passwordMd5 = md5($password);

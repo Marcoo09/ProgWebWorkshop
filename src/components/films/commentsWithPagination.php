@@ -23,12 +23,19 @@ if($user['is_admin']){
 }
 $pages = ceil($quantityOfElements/5);
 
+$arrayUsers = array();
+foreach($comentarios as $comment){
+    $userWhichDoTheComment = getUserById($comment['id_usuario']);
+    $arrayUsers = $arrayUsers + array($userWhichDoTheComment['id'] => $userWhichDoTheComment['alias']);
+}
+
 $mySmarty->assign("page",$page);
 $mySmarty->assign("pages",$pages);
 $mySmarty->assign("Id",$Id);
 $mySmarty->assign("comentarios",$comentarios);
 $mySmarty->assign("userLogued",$user);
 $mySmarty->assign('quantityOfComments',$quantityOfElements);
+$mySmarty->assign('arrayUsers',$arrayUsers);
 
 # mostrar el template
 $mySmarty->display('commentsWithPagination.tpl');

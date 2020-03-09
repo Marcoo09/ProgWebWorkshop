@@ -22,9 +22,9 @@
                     <div class="media-body">
                         <h4 class="media-heading user_name">{$com.estado}</h4>
                         <span class="text-muted pull-right">
-                            <small class="text-muted"> a while ago</small>
+                            <small class="text-muted"> a while ago by</small>
                         </span>
-                        <strong class="text-success">@{$com.id_usuario}</strong>
+                        <strong class="text-success">{if isset($arrayUsers[$com.id_usuario])}{$arrayUsers[$com.id_usuario]}{else}Anonimo{/if}</strong>
                         <p>
                             {$com.mensaje}
                             </a>.
@@ -53,7 +53,7 @@
                         <span class="text-muted pull-right">
                             <small class="text-muted"> a while ago</small>
                         </span>
-                        <strong class="text-success">@{$com.id_usuario}</strong>
+                        <strong class="text-success">{$arrayUsers[$com.id_usuario]}</strong>
                         <p>
                             {$com.mensaje}
                             </a>.
