@@ -8,6 +8,8 @@ $commentId = $_GET["commentId"];
 
 updateCommentStatus($commentId, 'DENIED');
 
+updateFilmPunctuation($filmId);
+
 header('location:filmDetail.php?filmId='.$filmId);
 
 

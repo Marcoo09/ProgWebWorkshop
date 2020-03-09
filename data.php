@@ -34,6 +34,14 @@ function getSmartyForScenes() {
 //Smarty Helpers
 //Onboarding Helpers
 
+function getUserById($id) {
+    $cn = getConnection();
+    $cn->consulta('SELECT * FROM usuarios WHERE id=:id ', array(
+        array("id", $id, 'int')
+    ));
+    return $cn->siguienteRegistro();
+}
+
 function getUser($user, $password) {
     $cn = getConnection();
     $passwordMd5 = md5($password);
@@ -102,7 +110,7 @@ function getGenre($genreId) {
 
 function getFilms() {
     $cn = getConnection();
-    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
+    $cn->consulta('SELECT * FROM peliculas ORDER BY fecha_lanzamiento desc');
     return $cn->restantesRegistros();
 }
 
@@ -112,11 +120,11 @@ function getFilmsFiltered($filterText, $filterType) {
     }
     $cn = getConnection();
     if ($filterType == "title") {
-        $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%' :title '%' ORDER BY titulo", array(array("title", $filterText, 'string')));
+        $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%' :title '%' ORDER BY fecha_lanzamiento desc", array(array("title", $filterText, 'string')));
     } else {
         $genre = getGenreByName($filterText);
         if ($genre) {
-            $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :id_genre ORDER BY titulo', array(array("id_genre", $genre['id'], 'string')));
+            $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :id_genre ORDER BY fecha_lanzamiento desc', array(array("id_genre", $genre['id'], 'string')));
         } else {
             return NULL;
         }
@@ -192,7 +200,7 @@ function isUserLogged() {
     return isset($user);
 }
 
-function SaveFilm($title, $genre, $dateRelease, $description,  $director, $youtube ,$image) {
+function saveFilm($title, $genre, $dateRelease, $description,  $director, $youtube ,$image,$bigImage) {
     $cn = getConnection();
     $cn->consulta('INSERT INTO peliculas(titulo, id_genero, fecha_lanzamiento, resumen, director,youtube_trailer) '
             . 'VALUES (:titulo, :id_genero, :fecha_lanzamiento, :resumen, :director, :youtube_trailer)', array(
@@ -209,6 +217,9 @@ function SaveFilm($title, $genre, $dateRelease, $description,  $director, $youtu
     $id = $cn->ultimoIdInsert();
     if (is_uploaded_file($image)) {
         move_uploaded_file($image, "../../../img_films/".$id);
+    }
+    if (is_uploaded_file($bigImage)) {
+        move_uploaded_file($bigImage, "../../../img_films/".$id.'-big');
     }
 }
 

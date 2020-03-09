@@ -11,7 +11,7 @@
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
         <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="addFilm.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
 
         <title>Nueva pelicula</title>
     </head>
@@ -50,23 +50,28 @@
                 </div>
                 <br>
                 <div>
-                    <select name="genre" class="custom-select">
+                    <select name="genre" class="custom-select" required>
                         {foreach from=$genre item=c}
                             <option value="{$c.id}">{$c.nombre}</option>
                         {/foreach}
                     </select>
                 </div>
-                <br>   
-                <div class="custom-file">
-                    <input type="file" accept=".jpg,.png" name="image" id="customFile" />
-                    <label class="custom-file-label" for="customFile">Elegir imagen</label>
+                <br>                   
+                <div class="row">
+                    <div class="custom-file col">
+                        <input type="file" accept=".jpg,.png" name="image[]" id="customFile" multiple="multiple" required/>
+                        <label class="custom-file-label" for="customFile">Elegir imagen pequeña</label>
+                    </div>
+                    <div class="custom-file col">
+                        <input type="file" accept=".jpg,.png" name="bigImage[]" id="customBigFile" multiple="multiple" required/>
+                        <label class="custom-file-label" for="customBigFile">Elegir imagen grande</label>
+                    </div>
                 </div>
-                <br>
-                
+
                 <div class="allign-right">
                     <input class="btn btn-outline-dark my-2 my-sm-0" value="Guardar" id="searchButton" type="submit"/>
                 </div>
-                
+
             </div>
 
         </form>

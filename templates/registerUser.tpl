@@ -11,9 +11,6 @@
     <body>
         <div class="wrapper fadeInDown">
             <div id="formContent">
-                <div class="fadeIn first">
-                    <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-                </div>
                 <form action="doRegister.php" method="POST">
                     <input name="user" type="email" id="user" class="fadeIn first" placeholder="Usuario" required/>
                     <input name="alias" id="alias" class="fadeIn second" placeholder="Alias" type="text" required/>
