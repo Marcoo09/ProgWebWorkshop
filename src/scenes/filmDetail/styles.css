@@ -43,7 +43,7 @@ p {
         -31px 31px 62px #d7ffff;
 }
 .big-banner{
-    height: 300px;
+    height: 400px;
     overflow: hidden;
     width: 100%;
     min-height: 300px;
@@ -53,7 +53,7 @@ p {
 
 .big-banner img{
     height: 100%;
-    min-height: 300px;
+    min-height: 400px;
     width: 100%;
     object-fit: cover;
     position: relative;
@@ -67,11 +67,11 @@ p {
 
 .big-banner-shadow{
     bottom: 0;
-    height: 300px;
+    height: 336px;
     left: 0;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 64px;
     z-index: 1;
     background: -webkit-radial-gradient(20% 20%, farthest-corner, transparent, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
     background: -o-radial-gradient(20% 20%, farthest-corner, transparent, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));

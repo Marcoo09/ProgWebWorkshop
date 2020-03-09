@@ -21,7 +21,6 @@ $mySmarty->assign("film",$film);
 $mySmarty->assign("cast",getCastByFilm($filmId));
 $mySmarty->assign("comment",$comment);
 $mySmarty->assign("filmId",$filmId);
-
 $mySmarty->assign("userLogued",$user);
 $mySmarty-> assign("currentUserHasCommentsInThisFilm",$currentUserHasCommentsInThisFilm);
 
