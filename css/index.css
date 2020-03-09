@@ -1,47 +1,53 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
+body {
+    font-family: 'PT Sans', sans-serif;
+    background: url(http://eskipaper.com/images/blue-space-pictures-1.jpg) no-repeat;
+    background-size: cover;
+}
+
 .loader-wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: white;
-  display:flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loader {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  border: 4px solid #Fff;
-  animation: loader 2s infinite ease;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    animation: loader 2s infinite ease;
 }
 
 .loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #fff;
-  animation: loader-inner 2s infinite ease-in;
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
 }
 
 @keyframes loader {
-  0% { transform: rotate(0deg);}
-  25% { transform: rotate(180deg);}
-  50% { transform: rotate(180deg);}
-  75% { transform: rotate(360deg);}
-  100% { transform: rotate(360deg);}
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(180deg);}
+    50% { transform: rotate(180deg);}
+    75% { transform: rotate(360deg);}
+    100% { transform: rotate(360deg);}
 }
 @keyframes loader-inner {
-  0% { height: 0%;}
-  25% { height: 0%;}
-  50% { height: 100%;}
-  75% { height: 100%;}
-  100% { height: 0%;}
+    0% { height: 0%;}
+    25% { height: 0%;}
+    50% { height: 100%;}
+    75% { height: 100%;}
+    100% { height: 0%;}
 }
 
 .gris{
@@ -62,29 +68,29 @@
 }
 
 .pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  border: 1px solid #ddd;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
 }
 
 .pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-  border: 1px solid #4CAF50;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 .pagination a:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .pagination a:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -93,30 +99,25 @@
 }
 
 .barsContainer{
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
 }
 
 .navbar {
-  width: 100%;
-  background-color: #000;
+    width: 100%;
+    background-color: #000;
 }
 
 .navbar a:hover {
-  background-color: #555;
-  color:white;
+    background-color: #555;
+    color:white;
 }
 
 .list-group a:hover{
-      background-color: #8a8888;
-      color: white;
-}
-
-body {
-    font-family: 'PT Sans', sans-serif;
-    background: url(http://eskipaper.com/images/blue-space-pictures-1.jpg) no-repeat;
+    background-color: #8a8888;
+    color: white;
 }
 
 .filmsContainer{
@@ -124,6 +125,15 @@ body {
     flex-wrap:wrap;
     justify-content: space-between;
     align-content: space-around;
+}
+
+@media screen and (max-width: 480px) {
+    .filmsContainer {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-content: space-around;
+    }
 }
 
 .card {
@@ -310,9 +320,9 @@ body {
 }
 
 .wrapText{
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 4; /* number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* number of lines to show */
 }
