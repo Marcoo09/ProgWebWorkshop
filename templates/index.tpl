@@ -41,14 +41,10 @@
                             <li class="nav-item">
 
                                 <form class="form-inline my-2 my-lg-0">
-
                                     <input class="form-control mr-sm-2" type="search" id="searchField" placeholder="Ingresa tu busqueda" aria-label="Ingresa tu busqueda">
-
-
                                     <button class="btn btn-outline-light my-2 my-sm-0" id="searchButton" type="button">Buscar</button>
-
-
                                 </form>
+                                
                             </li>
 
                             <li class="nav-item dropdown">
