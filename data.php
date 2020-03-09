@@ -146,7 +146,7 @@ function getFilmsByGenreId($genreId) {
 
 function updateFilmPunctuation($filmId) {
     $cn = getConnection();
-    $cn->consulta("UPDATE peliculas SET puntuacion = (SELECT avg(puntuacion) FROM comentarios WHERE id_pelicula = :filmId AND estado = 'APROBADO')", array(
+    $cn->consulta("UPDATE peliculas SET puntuacion = (SELECT avg(puntuacion) FROM comentarios WHERE id_pelicula = :filmId AND estado = 'APROBADO') WHERE id = :filmId", array(
         array("filmId", $filmId, 'int')
     ));
 }
