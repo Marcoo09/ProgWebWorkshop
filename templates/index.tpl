@@ -100,7 +100,9 @@
                 <div class="bg-gradient-dark border-right sidebar-container" id="sidebar-wrapper" >
                     <div class="sidebar-heading" id="genres">Géneros</div>
                     <div class="list-group list-group-flush">
-
+                        <a href="#" class="list-group-item list-group-item-action bg-gradient-dark" genreId="{0}">
+                            Todos
+                        </a>
                         {foreach from=$genres item=genre}
 
                             <a href="#" class="list-group-item list-group-item-action bg-gradient-dark" genreId="{$genre.id}">
