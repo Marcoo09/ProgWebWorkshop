@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     $("#searchButton").on("click", function (event) {
         genreId = 0;
-        searchText = $("#searchField").val();
+        searchText = $("#searchField").val().trim();
         page = 1;
         load();
     });
