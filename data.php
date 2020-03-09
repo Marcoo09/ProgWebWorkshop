@@ -110,7 +110,7 @@ function getGenre($genreId) {
 
 function getFilms() {
     $cn = getConnection();
-    $cn->consulta('SELECT * FROM peliculas ORDER BY titulo');
+    $cn->consulta('SELECT * FROM peliculas ORDER BY fecha_lanzamiento desc');
     return $cn->restantesRegistros();
 }
 
@@ -120,11 +120,11 @@ function getFilmsFiltered($filterText, $filterType) {
     }
     $cn = getConnection();
     if ($filterType == "title") {
-        $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%' :title '%' ORDER BY titulo", array(array("title", $filterText, 'string')));
+        $cn->consulta("SELECT * FROM peliculas WHERE titulo LIKE '%' :title '%' ORDER BY fecha_lanzamiento desc", array(array("title", $filterText, 'string')));
     } else {
         $genre = getGenreByName($filterText);
         if ($genre) {
-            $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :id_genre ORDER BY titulo', array(array("id_genre", $genre['id'], 'string')));
+            $cn->consulta('SELECT * FROM peliculas WHERE id_genero = :id_genre ORDER BY fecha_lanzamiento desc', array(array("id_genre", $genre['id'], 'string')));
         } else {
             return NULL;
         }
