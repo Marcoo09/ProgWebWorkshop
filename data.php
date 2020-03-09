@@ -1,6 +1,6 @@
 <?php
 
-include 'env.php';
+include 'configuracion.php';
 require_once 'libs/Smarty.class.php';
 require_once 'src/helpers/class.Conexion.BD.php';
 
